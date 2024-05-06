@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  scrollbar-color: transparent transparent;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@layer utilities {
+  @for $i from 0 through 5000 {
+    .animation-delay-#{$i * 200} {
+      animation-delay: #{$i * 200}ms;
+    }
+  }
+
+  .animation-fill-mode-forwards {
+    animation-fill-mode: forwards;
+  }
+
+  .w-fit-content {
+    width: fit-content;
+  }
+}
+
+.background-moon:hover ~ .background-moon-cloud {
+  transform: translateX(1rem);
+}
+
+.background-sun:hover ~ .background-sun-cloud {
+  transform: translateX(1rem);
+}
+
+.resume-pdf-underline {
+  transform: scaleX(0);
+}
+
+.resume-pdf:hover ~ .resume-pdf-underline {
+  transform: scaleX(1);
+}
+
+.linkedin-underline {
+  transform: scaleX(0);
+}
+
+.linkedin:hover ~ .linkedin-underline {
+  transform: scaleX(1);
+}
+
+.github-underline {
+  transform: scaleX(0);
+}
+
+.github:hover ~ .github-underline {
+  transform: scaleX(1);
+}

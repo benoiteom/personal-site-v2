@@ -8,13 +8,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      keyframes: {
+        rotateIn90: {
+          'from': { transform: 'rotate(90deg)' },
+          'to': { transform: 'rotate(0deg)' }
+        },
+        slideInWidth: {
+          'from': { width: '0px' },
+          'to': { width: '100%' }
+        },
+        slideInHeight: {
+          'from': { height: '0px' },
+          'to': { height: '100%' }
+        },
+      },
+      animation: {
+        'rotate-in-90': 'rotateIn90 0.2s linear',
+        'slide-in-width': 'slideInWidth 0.2s linear',
+        'slide-in-height': 'slideInHeight 0.2s linear',
       },
     },
   },
   plugins: [],
+  darkMode: 'selector',
 };
 export default config;

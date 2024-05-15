@@ -103,7 +103,7 @@ export default function Project({
         maxWidth: isMobile ? "420px" : "700px",
         transform: isInModal ? transform.elementCenter : "",
         zIndex: lateTransform ? 40 : 0,
-        cursor: isInModal ? '' : 'pointer',
+        cursor: isInModal ? "" : "pointer",
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -213,10 +213,13 @@ export default function Project({
           onMouseEnter={handleHoverRight}
         />
         <div
-          className="transition-opacity duration-300 absolute -top-8 bottom-1 -right-4 w-52 flex flex-col justify-between"
-          style={{ opacity: isInModal ? 1 : 0 }}
+          className="transition-opacity duration-300 absolute bottom-0 -right-4 w-52 flex flex-col justify-between"
+          style={{ opacity: isInModal ? 1 : 0, top: "-29px" }}
         >
-          <p className="transition-all duration-500 text-zinc-950 dark:text-zinc-100">
+          <p
+            className="transition-all duration-500 text-zinc-950 dark:text-zinc-100"
+            style={{ fontSize: isMobile ? "14px" : "16px" }}
+          >
             {desc}
           </p>
           <div className="flex items-center w-fit-content justify-between px-3 py-1 mb-4 rounded-full bg-zinc-950 dark:bg-zinc-100">
@@ -227,8 +230,8 @@ export default function Project({
               transition={{ duration: 2, repeat: Infinity }}
             />
             <p
-              className="text-[12px] uppercase font-semibold transition-all duration-500 text-zinc-100 dark:text-zinc-950"
-              style={{ marginBottom: "-1px" }}
+              className="uppercase font-semibold transition-all duration-500 text-zinc-100 dark:text-zinc-950"
+              style={{ marginBottom: "-1px", fontSize: isMobile ? "10px" : "12px" }}
             >
               {status}
             </p>

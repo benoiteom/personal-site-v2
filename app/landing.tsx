@@ -45,9 +45,9 @@ export default function Landing({
   });
 
   return (
-    <div className="sticky top-0 pt-4 mx-4 flex justify-between min-h-screen">
+    <div className="sticky top-0 mx-4 flex justify-between min-h-screen">
       <motion.div
-        className={isTablet ? "min-h-screen flex flex-col justify-center items-center" : ""}
+        className={isTablet ? "min-h-screen flex flex-col justify-center items-center" : "pt-4"}
         style={{ translateX: translateNameX, width: `calc(100% - ${width}px)` }}
       >
         <p
@@ -67,7 +67,7 @@ export default function Landing({
         </p>
       </motion.div>
       {!!width && (
-        <div className="sticky top-0">
+        <div className="relative top-4">
           <div
             id="block-0"
             className="absolute overflow-hidden"

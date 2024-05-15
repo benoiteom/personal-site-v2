@@ -14,6 +14,8 @@ import { ThemeProvider } from "./context/themeContext.tsx";
 import MobileLanding from "./mobileLanding.tsx";
 import Contact from "./contact.tsx";
 import Photography from "./photography.tsx";
+import { ModalProvider } from "./context/modalContext.jsx";
+import Modal from "./modal.tsx";
 
 export default function Home() {
   const [width, setWidth] = useState(0);
@@ -43,93 +45,104 @@ export default function Home() {
       setIsMobile(false);
       setIsTablet(false);
     }
-  }
+  };
 
   return (
     <ThemeProvider>
       <ScrollProvider>
-        <main className="bg-zinc-100 dark:bg-zinc-950 transition duration-500">
-          <Smoke />
-          {(!!width && !isMobile) && <Cursor width={width} isTablet={isTablet} />}
-          <div
-            id="scroll-wrapper"
-            ref={scrollRef}
-            className="w-full h-screen overflow-auto"
-          >
-            <div id="scroll-content" style={{ minHeight: "500vh" }}>
-              {(!!width || isMobile) && (
-                <>
-                  {/* LANDING PAGE */}
-                  {!isMobile ? (
-                    <Landing width={width} scrollRef={scrollRef} isTablet={isTablet} />
-                  ) : (
-                    <MobileLanding scrollRef={scrollRef} />
-                  )}
+        <ModalProvider>
+          <main className="bg-zinc-100 dark:bg-zinc-950 transition duration-500">
+            <Smoke />
+            {!!width && !isMobile && (
+              <Cursor width={width} isTablet={isTablet} />
+            )}
+            <div
+              id="scroll-wrapper"
+              ref={scrollRef}
+              className="w-full h-screen overflow-auto"
+            >
+              <div id="scroll-content" style={{ minHeight: "500vh" }}>
+                {(!!width || isMobile) && (
+                  <>
+                    {/* LANDING PAGE */}
+                    {!isMobile ? (
+                      <Landing
+                        width={width}
+                        scrollRef={scrollRef}
+                        isTablet={isTablet}
+                      />
+                    ) : (
+                      <MobileLanding scrollRef={scrollRef} />
+                    )}
 
-                  <div
-                    className="relative mt-8 px-8"
-                    style={{ width: `calc(100vw - ${width + 16}px)` }}
-                  >
-                    {/* PROJECTS */}
-                    <div id="projects">
-                      {projects.map((project, i) => (
-                        <Project
-                          key={i}
-                          title={project.title}
-                          colors={project.colors}
-                          desc={project.desc}
-                          type={project.type}
-                          dates={project.dates}
-                          tech={project.tech}
-                          images={project.images}
-                          isMobile={isMobile}
-                        />
-                      ))}
-                    </div>
-
-                    <div className="py-28" />
-
-                    {/* EXPERIENCE */}
-                    <div className="flex justify-center">
-                      <div id="experience">
-                        {experience.map((e, i) => (
-                          <Experience
+                    <div
+                      className="relative mt-8 px-8"
+                      style={{ width: `calc(100vw - ${width + 16}px)` }}
+                    >
+                      {/* PROJECTS */}
+                      <div id="projects">
+                        {projects.map((project, i) => (
+                          <Project
                             key={i}
-                            company={e.company}
-                            title={e.title}
-                            date={e.date}
-                            data={e.data}
+                            title={project.title}
+                            colors={project.colors}
+                            desc={project.desc}
+                            status={project.status}
+                            type={project.type}
+                            dates={project.dates}
+                            tech={project.tech}
+                            images={project.images}
+                            isMobile={isMobile}
                           />
                         ))}
                       </div>
+
+                      <div className="py-28" />
+
+                      {/* EXPERIENCE */}
+                      <div className="flex justify-center">
+                        <div id="experience">
+                          {experience.map((e, i) => (
+                            <Experience
+                              key={i}
+                              company={e.company}
+                              title={e.title}
+                              date={e.date}
+                              data={e.data}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="py-28" />
+
+                      {/* ABOUT */}
+                      <div id="about">
+                        <About />
+                      </div>
+
+                      {/* CONTACT */}
+                      <div id="contact">
+                        <Contact />
+                      </div>
+
+                      <div className="py-28" />
+
+                      {/* PHOTOGRAPHY */}
+                      <div id="photography">
+                        <Photography />
+                      </div>
+
+                      <div className="py-20" />
                     </div>
-
-                    <div className="py-28" />
-
-                    {/* ABOUT */}
-                    <div id="about">
-                      <About />
-                    </div>
-
-                    {/* CONTACT */}
-                    <div id="contact">
-                      <Contact />
-                    </div>
-
-                    <div className="py-28" />
-
-                    {/* PHOTOGRAPHY */}
-                    <div id="photography">
-                      <Photography />
-                    </div>
-
-                    <div className="py-20" />
-                  </div>
-                </>
-              )}
+                  </>
+                )}
+              </div>
             </div>
-          </div>
-        </main>
+          </main>
+
+          <Modal />
+        </ModalProvider>
       </ScrollProvider>
     </ThemeProvider>
   );

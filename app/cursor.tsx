@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useScrollContext } from "./context/scrollContext.tsx";
 import { useThemeContext } from "./context/themeContext.tsx";
+import { useModalContext } from "./context/modalContext.jsx";
 
 const ratio = (1 + Math.sqrt(5)) / 2;
 
 export default function Cursor({ width, isTablet }: { width: number, isTablet: boolean }) {
   const { hasScrolled } = useScrollContext();
   const { isDarkMode } = useThemeContext();
+  const { width: modalWidth, height: modalHeight, closeTransform } = useModalContext();
 
   const [scale, setScale] = useState(1);
   const [stickyElements, setStickyElements] = useState<
@@ -26,6 +28,13 @@ export default function Cursor({ width, isTablet }: { width: number, isTablet: b
 
   useEffect(() => {
     if (!width) return;
+
+    if (closeTransform) {
+      setStickyElements([
+        { x: window.innerWidth - (window.innerWidth - modalWidth) / 2 - 108 / 2, y: (window.innerHeight - modalHeight) / 2 + 108 / 2 },
+      ]);
+      return;
+    }
 
     if (isTablet) {
       setStickyElements([
@@ -51,7 +60,7 @@ export default function Cursor({ width, isTablet }: { width: number, isTablet: b
         ? { x: window.innerWidth - 16 - width / ratio - (width / ratio / ratio * 0.18) - 16, y: window.innerHeight - 16 - width / ratio / ratio * 0.32 - 16 }  // sun
         : { x: window.innerWidth - 16 - width / ratio - (width / ratio / ratio * 0.68) + 14, y: window.innerHeight - 16 - width / ratio / ratio * 0.82 + 14 },  // moon
     ]);
-  }, [width, isDarkMode, hasScrolled]);
+  }, [width, isDarkMode, hasScrolled, closeTransform]);
 
   useEffect(() => {
     const manageMouseMove = (e: MouseEvent) => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Squiggle from "./squiggle";
+import { useThemeContext } from "./context/themeContext";
 
 export default function Experience({
   company,
@@ -27,10 +28,12 @@ export default function Experience({
       </p>
 
       {/* LEFT BORDER */}
-      <div className="transition-all duration-500 absolute top-0 -left-1 h-full bg-zinc-950 dark:bg-zinc-100" style={{ width: '3px' }}>
-        <div className="relative h-auto top-16" style={{ left: '-14px', transform: "rotate(90deg)", width: '31px' }}>
+      <div className="absolute top-0 -left-1 h-full flex flex-col" style={{ width: '3px' }}>
+        <div className="h-16 w-[3px] bg-zinc-950 dark:bg-zinc-100" />
+        <div className="relative" style={{ margin: '4px 0 4px 0', left: '-14px', transform: "rotate(90deg)", width: '31px' }}>
           <Squiggle wiggle={wiggle} />
         </div>
+        <div className="flex-grow w-[3px] bg-zinc-950 dark:bg-zinc-100" />
       </div>
 
       {/* DESCRIPTION */}

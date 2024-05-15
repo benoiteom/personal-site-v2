@@ -30,10 +30,11 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Legacy",
+    title: ["Legacy"],
     colors: ["#72EFF1", "#25E0CD", "#EC52CA", "#FF3D60", "#7416EC"],
-    desc: "A to-do list and habit tracking app based on science",
+    desc: "A desktop / mobile app combo for task management, reminders, and habit building. It uses the latest productivity and health research to increase a user's potential while supporting healthy life choices.",
     type: "Apps",
+    status: "In development",
     dates: "JAN 2024 - PRESENT",
     tech: [
       "Electron",
@@ -55,10 +56,11 @@ export const projects = [
     ],
   },
   {
-    title: "Wordle FR",
+    title: ["Wordle", "FR"],
     colors: ["#629F5B", "#C2AA52", "#FFFFFF", "#000000"],
-    desc: "A Wordle clone for the French side of the family",
+    desc: "A Wordle clone for the French side of the family, it features a list of 365 french words and full Wordle functionality. Last I heard they have a whole WhatsApp chat for discussing the word of the day and sharing how many tries it took them to guess it!",
     type: "Website",
+    status: "Completed",
     dates: "JAN 2022",
     tech: ["Next.js", "JavaScript", "CSS"],
     images: [
@@ -71,10 +73,11 @@ export const projects = [
     ],
   },
   {
-    title: "TENEEZ",
+    title: ["TENEEZ"],
     colors: ["#F2B822", "#FFFFFF", "#000000"],
-    desc: "A sneaker rental startup",
+    desc: "A startup that gives users a place to rent the coolest and most exclusive sneakers. Cofounded by myself and a friend in my junior year of college, I was CTO and sole designer / frontend developer. We ran for over a year before closing due to limited profits.",
     type: "Startup",
+    status: "Closed",
     dates: "NOV 2019 - JUN 2021",
     tech: [
       "React",
@@ -96,10 +99,11 @@ export const projects = [
     ],
   },
   {
-    title: "Portfolio v1",
+    title: ["CV Site", "v1"],
     colors: ["#26D8D6", "#3591DC", "#5D65B4", "#D52828", "#000000"],
-    desc: "Check out the last version of this site",
+    desc: "The last version of this website! Built over winter break in 2021 in hopes of landing a job at a startup, there were some cool pieces in there. I just think it's fun to look back and see how far I've come.",
     type: "Website",
+    status: "Deprecated",
     dates: "JAN 2021",
     tech: ["Next.js", "React", "Smooth Scroll", "CSS"],
     images: [

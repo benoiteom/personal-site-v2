@@ -27,10 +27,14 @@ export default function Home() {
   useEffect(() => {
     setDimensions();
 
-    // TODO: causes refresh if scroll all the way to the bottom on phone
-    window.addEventListener("resize", () => location.reload());
-    return () => window.removeEventListener("resize", () => location.reload());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   });
+
+  const onResize = () => {
+    if (window.innerWidth / window.innerHeight < 1) return
+    location.reload();
+  }
 
   const setDimensions = () => {
     if (window.innerWidth / window.innerHeight < 1) {

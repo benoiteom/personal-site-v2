@@ -69,7 +69,7 @@ export default function Project({
     const rightImg = document.getElementById(`img-1-${images[1]}`);
 
     if (isInModal && leftImg && rightImg) {
-      const scale = (width - 208 - 64) / 420;
+      const scale = isMobile ? 0 : (width - 208 - 64) / 420;
       leftImg.style.transform = `scale(${scale})`;
       rightImg.style.transform = "translateY(-32px) scale(1)";
       rightImg.style.opacity = "0";
@@ -187,7 +187,10 @@ export default function Project({
           </span>
         )}
       </p>
-      <p className="text-sm uppercase font-semibold mb-2 ml-2 transition-all duration-500 text-zinc-700 dark:text-zinc-300">
+      <p
+        className="transition-opacity duration-300 text-sm uppercase font-semibold mb-2 ml-2 transition-all duration-500 text-zinc-700 dark:text-zinc-300"
+        style={{ opacity: isInModal && isMobile ? 0 : 1 }}
+      >
         {type}
       </p>
       <div className="relative transition-opacity duration-300">
@@ -208,21 +211,32 @@ export default function Project({
           height={1}
           width={420}
           alt="Legacy app image"
-          style={{ transform: "translateY(-32px) scale(.75)" }}
+          style={{
+            transform: "translateY(-32px) scale(.75)",
+            display: isMobile ? "none" : "",
+          }}
           className="transition-all duration-500 absolute top-0 right-0 origin-top-right z-10 border-8 border-zinc-100 dark:border-zinc-950 rounded-md"
           onMouseEnter={handleHoverRight}
         />
         <div
-          className="transition-opacity duration-300 absolute bottom-0 -right-4 w-52 flex flex-col justify-between"
-          style={{ opacity: isInModal ? 1 : 0, top: "-29px" }}
+          className="transition-opacity duration-300 absolute bottom-0 flex flex-col justify-between"
+          style={{
+            opacity: isInModal ? 1 : 0,
+            top: "-29px",
+            right: isMobile ? 0 : "-16px",
+            maxWidth: isMobile ? "100%" : "208px",
+          }}
         >
           <p
             className="transition-all duration-500 text-zinc-950 dark:text-zinc-100"
-            style={{ fontSize: isMobile ? "14px" : "16px" }}
+            style={{ fontSize: isMobile ? "14px" : "16px", marginTop: isMobile ? '4px' : '' }}
           >
             {desc}
           </p>
-          <div className="flex items-center w-fit-content justify-between px-3 py-1 mb-4 rounded-full bg-zinc-950 dark:bg-zinc-100">
+          <div
+            className="flex items-center w-fit-content justify-between px-3 py-1 mt-1 rounded-full bg-zinc-950 dark:bg-zinc-100"
+            style={{ marginBottom: isMobile ? 0 : "16px" }}
+          >
             <motion.div
               className="h-[6px] w-[6px] mr-2 rounded-full bg-zinc-100 dark:bg-zinc-950"
               initial={{ opacity: status === "In development" ? 0 : 1 }}
@@ -230,8 +244,10 @@ export default function Project({
               transition={{ duration: 2, repeat: Infinity }}
             />
             <p
-              className="uppercase font-semibold transition-all duration-500 text-zinc-100 dark:text-zinc-950"
-              style={{ marginBottom: "-1px", fontSize: isMobile ? "10px" : "12px" }}
+              className="text-[12px] uppercase font-semibold transition-all duration-500 text-zinc-100 dark:text-zinc-950"
+              style={{
+                marginBottom: "-1px",
+              }}
             >
               {status}
             </p>

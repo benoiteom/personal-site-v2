@@ -75,7 +75,7 @@ export const projects = [
   {
     title: ["TENEEZ"],
     colors: ["#F2B822", "#FFFFFF", "#000000"],
-    desc: "A startup that gives users a place to rent the coolest and most exclusive sneakers. Cofounded by myself and a friend in my junior year of college, I was CTO and sole designer / frontend developer. We ran for over a year before closing due to limited profits.",
+    desc: "A startup that gives users a place to rent the coolest and most exclusive sneakers. Cofounded by myself and a friend in my junior year of college, I was CTO and sole designer / frontend developer. We ran for over a year before closing.",
     type: "Startup",
     status: "Closed",
     dates: "NOV 2019 - JUN 2021",

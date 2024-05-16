@@ -17,7 +17,7 @@ export function ScrollProvider({ children }: { children: React.ReactNode }) {
   const scrollToById = (anchor: string) => {
     const anchorElement = document.getElementById(anchor);
     if (!refLenis?.current || !anchorElement) return;
-    refLenis.current.scrollTo(anchorElement, { offset: -60, duration: 2 });
+    refLenis.current.scrollTo(anchorElement, { offset: -100, duration: 2 });
   };
 
   const initLenis = () => {

@@ -24,7 +24,7 @@ export default function Sidebar({
   };
 
   return (
-    <aside style={{ width }} className="mr-4">
+    <aside style={{ width }}>
       <SwirlBlock
         width={getLengthByIndex(1)}
         sideWidths={{ t: 4, r: 4, b: 0, l: 4 }}
@@ -41,7 +41,10 @@ export default function Sidebar({
             />
             <p
               className={`transition-all duration-500 cursor-pointer absolute z-30 top-[16.7%] right-[60%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{ transform: "translateY(-50%)", opacity: "1" }}
+              style={{
+                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
+                opacity: !isSpiralComplete ? "0" : "1",
+              }}
               onClick={() => scrollToById("about")}
             >
               p<span className="uppercase">r</span>ojects
@@ -52,7 +55,10 @@ export default function Sidebar({
             />
             <p
               className={`transition-all duration-500 cursor-pointer absolute z-20 top-[33%] right-[38%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{ transform: "translateY(-50%)", opacity: "1" }}
+              style={{
+                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
+                opacity: !isSpiralComplete ? "0" : "1",
+              }}
               onClick={() => scrollToById("experience")}
             >
               e<span className="uppercase">x</span>perience
@@ -63,7 +69,10 @@ export default function Sidebar({
             />
             <p
               className={`transition-all duration-500 cursor-pointer absolute z-20 top-[50%] right-[25%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{ transform: "translateY(-50%)", opacity: "1" }}
+              style={{
+                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
+                opacity: !isSpiralComplete ? "0" : "1",
+              }}
               onClick={() => scrollToById("projects")}
             >
               <span className="uppercase">a</span>bout me

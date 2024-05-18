@@ -1214,45 +1214,8 @@ export function initializeWebGL(canvas, config) {
     updatePointerMoveData(pointer, posX, posY);
   })
 
-  window.addEventListener("pointerup", () => {
-    updatePointerUpData(pointers[0]);
-  });
-
-  // canvas.addEventListener("touchstart", (e) => {
-  //   e.preventDefault();
-  //   const touches = e.targetTouches;
-  //   while (touches.length >= pointers.length)
-  //     pointers.push(new pointerPrototype());
-  //   for (let i = 0; i < touches.length; i++) {
-  //     let posX = scaleByPixelRatio(touches[i].pageX);
-  //     let posY = scaleByPixelRatio(touches[i].pageY);
-  //     updatePointerDownData(pointers[i + 1], touches[i].identifier, posX, posY);
-  //   }
-  // });
-
-  // canvas.addEventListener(
-  //   "touchmove",
-  //   (e) => {
-  //     e.preventDefault();
-  //     const touches = e.targetTouches;
-  //     for (let i = 0; i < touches.length; i++) {
-  //       let pointer = pointers[i + 1];
-  //       if (!pointer.down) continue;
-  //       let posX = scaleByPixelRatio(touches[i].pageX);
-  //       let posY = scaleByPixelRatio(touches[i].pageY);
-  //       updatePointerMoveData(pointer, posX, posY);
-  //     }
-  //   },
-  //   false
-  // );
-
-  // window.addEventListener("touchend", (e) => {
-  //   const touches = e.changedTouches;
-  //   for (let i = 0; i < touches.length; i++) {
-  //     let pointer = pointers.find((p) => p.id == touches[i].identifier);
-  //     if (pointer == null) continue;
-  //     updatePointerUpData(pointer);
-  //   }
+  // window.addEventListener("pointerup", () => {
+  //   updatePointerUpData(pointers[0]);
   // });
 
   function updatePointerDownData(pointer, id, posX, posY) {

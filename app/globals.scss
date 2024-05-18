@@ -45,6 +45,15 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
+#scroll-wrapper {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none;
+}
+ 
+#scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 @layer utilities {
   @for $i from 0 through 5000 {
     .animation-delay-#{$i * 200} {
@@ -91,4 +100,20 @@ html.lenis, html.lenis body {
 
 .github:hover ~ .github-underline {
   transform: scaleX(1);
+}
+
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: #19f6e8;
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+
+.shape:hover {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
 }

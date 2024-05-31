@@ -32,9 +32,9 @@ export default function Home() {
   });
 
   const onResize = () => {
-    if (window.innerWidth / window.innerHeight < 1) return
+    if (window.innerWidth / window.innerHeight < 1) return;
     location.reload();
-  }
+  };
 
   const setDimensions = () => {
     if (window.innerWidth / window.innerHeight < 1) {
@@ -105,19 +105,23 @@ export default function Home() {
                       <div className="py-28" />
 
                       {/* EXPERIENCE */}
-                      <div className="flex justify-center">
-                        <div id="experience">
-                          {experience.map((e, i) => (
-                            <Experience
-                              key={i}
-                              company={e.company}
-                              title={e.title}
-                              date={e.date}
-                              data={e.data}
-                            />
-                          ))}
+                      {!!scrollRef && (
+                        <div className="flex justify-center">
+                          <div id="experience">
+                            {experience.map((e, i) => (
+                              <Experience
+                                key={i}
+                                scrollRef={scrollRef}
+                                company={e.company}
+                                title={e.title}
+                                date={e.date}
+                                data={e.data}
+                                details={e.details}
+                              />
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       <div className="py-28" />
 
@@ -125,6 +129,8 @@ export default function Home() {
                       <div id="about">
                         <About />
                       </div>
+
+                      <div className="py-20" />
 
                       {/* CONTACT */}
                       <div id="contact">

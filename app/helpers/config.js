@@ -10,20 +10,23 @@ export const experience = [
       },
       { subTitle: "Promoted Nov 2022" },
     ],
+    details: "I currently hold a leading role here with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback.",
   },
   {
     company: "TATA Consultancy Services",
     title: "Junior Software Engineer",
     date: "Feb 2022",
+    details: "Allocated to Boeing to monitor and support an internal Java application.",
   },
   {
     company: "University of Illinois Urbana-Champaign",
     title: "B.S. Computer Engineering",
     date: "May 2021",
     data: [
-      { title: "Software Engineer", subTitle: "Oculo.AI" },
-      { title: "Frontend Web Developer", subTitle: "All-Time Yachting" },
-      { title: "IT Intern", subTitle: "John Deere" },
+      { title: "Software Engineer", subTitle: "Oculo.AI", details: "Built an internal Python tool to accelerate the product's pipeline and improve ease of use." },
+      { title: "Frontend Developer", subTitle: "All-Time Yachting", details: "Took on various tasks as a frontend developer to help the team." },
+      { title: "Frontend Developer", subTitle: "MUS-ROVER", details: "Contributed to a machine learning research project." },
+      { title: "IT Intern", subTitle: "John Deere", details: "Handled DevOps requests for all repositories and assisted in developing tests." },
     ],
   },
 ];

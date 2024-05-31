@@ -7,9 +7,9 @@ export default function Contact() {
   return (
     <div className="flex justify-center" style={{ gap: "32px" }}>
       <div className="animate duration-500 max-w-24 flex-grow" />
-      <div className="relative max-w-[600px] flex-grow">
+      <div className="relative max-w-[600px] flex-grow p-8 rounded-full border-2 border-zinc-950 dark:border-zinc-100">
         <p
-          className={`animate duration-500 mt-8 text-zinc-950 dark:text-zinc-100`}
+          className="animate duration-500 text-zinc-950 dark:text-zinc-100"
         >
           Let&apos;s get in touch! You can{" "}
           <span

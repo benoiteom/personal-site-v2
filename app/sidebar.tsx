@@ -55,7 +55,7 @@ export default function Sidebar({
               transform: !isSpiralComplete || !isCondensed ? "translateY(0)" : "translateY(-50%)",
               opacity: !isSpiralComplete || !isCondensed ? "0" : "1",
             }}
-            onClick={() => scrollToById("about")}
+            onClick={() => scrollToById("projects")}
           >
             p<span className="uppercase">r</span>ojects
           </p>
@@ -83,7 +83,7 @@ export default function Sidebar({
               transform: !isSpiralComplete || !isCondensed ? "translateY(0)" : "translateY(-50%)",
               opacity: !isSpiralComplete || !isCondensed ? "0" : "1",
             }}
-            onClick={() => scrollToById("projects")}
+            onClick={() => scrollToById("about")}
           >
             <span className="uppercase">a</span>bout me
           </p>

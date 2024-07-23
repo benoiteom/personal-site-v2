@@ -1,3 +1,31 @@
+export const config = {
+  SIM_RESOLUTION: 128,
+  DYE_RESOLUTION: 1024,
+  CAPTURE_RESOLUTION: 512,
+  DENSITY_DISSIPATION: 6,
+  VELOCITY_DISSIPATION: 0.6,
+  PRESSURE: 0.8,
+  PRESSURE_ITERATIONS: 20,
+  CURL: 0,
+  SPLAT_RADIUS: 0.004,
+  SPLAT_FORCE: 20000,
+  SHADING: true,
+  COLORFUL: false,
+  COLOR_UPDATE_SPEED: 10,
+  PAUSED: false,
+  BACK_COLOR: { r: 255, g: 255, b: 255 },
+  TRANSPARENT: true,
+  BLOOM: false,
+  BLOOM_ITERATIONS: 6,
+  BLOOM_RESOLUTION: 256,
+  BLOOM_INTENSITY: 0.05,
+  BLOOM_THRESHOLD: 0.8,
+  BLOOM_SOFT_KNEE: 0.7,
+  SUNRAYS: true,
+  SUNRAYS_RESOLUTION: 196,
+  SUNRAYS_WEIGHT: 1.0,
+};
+
 export const experience = [
   {
     company: "Busify",
@@ -120,36 +148,31 @@ export const projects = [
   },
 ];
 
-export const config = {
-  SIM_RESOLUTION: 128,
-  DYE_RESOLUTION: 1024,
-  CAPTURE_RESOLUTION: 512,
-  DENSITY_DISSIPATION: 6,
-  VELOCITY_DISSIPATION: 0.6,
-  PRESSURE: 0.8,
-  PRESSURE_ITERATIONS: 20,
-  CURL: 0,
-  SPLAT_RADIUS: 0.004,
-  SPLAT_FORCE: 20000,
-  SHADING: true,
-  COLORFUL: false,
-  COLOR_UPDATE_SPEED: 10,
-  PAUSED: false,
-  BACK_COLOR: { r: 255, g: 255, b: 255 },
-  TRANSPARENT: true,
-  BLOOM: false,
-  BLOOM_ITERATIONS: 6,
-  BLOOM_RESOLUTION: 256,
-  BLOOM_INTENSITY: 0.05,
-  BLOOM_THRESHOLD: 0.8,
-  BLOOM_SOFT_KNEE: 0.7,
-  SUNRAYS: true,
-  SUNRAYS_RESOLUTION: 196,
-  SUNRAYS_WEIGHT: 1.0,
-};
-
 export const aboutMe = [
   "I pride myself in hard work, a constant desire to learn, and a broad skill set. I have experience working across the entire pipeline, from idea to release, with projects to back it up. Lately, my choice of stack is Next.js with Tailwind, a Node.js backend, and MySQL. I'm also trying to get back into mobile app development with React Native.",
   "Don't worry, I'm not all work. I love throwing myself into new hobbies and expanding on old ones. Some longer lasting interests include photography, fitness, and traveling. More recently, you might find me running, listening to an audiobook, or perfecting my homemade kombucha. A couple of my new year's resolutions are to run a marathon and read 50 books!",
   "Hope you like my website :)",
 ];
+
+export const photos = [
+  {
+    location: "California",
+    date: "2024",
+    images: [
+      "/DSCF2743.webp",
+      "/DSCF2775.webp",
+      "/DSCF2857.webp",
+      "/DSCF2896.webp",
+    ],
+  },
+  {
+    location: "Portugal",
+    date: "2024",
+    images: [
+      "/DSCF2557.webp",
+      "/DSCF2624.webp",
+      "/DSCF2655.webp",
+      "/DSCF2690.webp",
+    ],
+  },
+]

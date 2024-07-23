@@ -51,11 +51,19 @@ export default function Cursor({ width, isTablet }: { width: number, isTablet: b
     }
 
     setStickyElements([
-      ...(!hasScrolled ? [{ x: window.innerWidth - 16 - (width + width * ratio * 0.56) + 80, y: width * ratio * 0.25 + 32 - 14 },
-      { x: window.innerWidth - 16 - (width + width * ratio * 0.78) + 90, y: width * ratio * 0.5 + 32 - 14 },
-      { x: window.innerWidth - 16 - (width + width * ratio * 0.885) + 80, y: width * ratio * 0.75 + 32 - 14 }] : []),
-      { x: window.innerWidth - 16 - (width * 0.68) + 64, y: width * 0.33 + 32 - 14 },
-      { x: window.innerWidth - 16 - (width * 0.61) + 108, y: width * 0.66 + 32 - 14 },
+      ...(!hasScrolled ? [
+        { x: window.innerWidth - 16 - (width + width * ratio * 0.56) + 80, y: width * ratio * 0.25 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width + width * ratio * 0.78) + 90, y: width * ratio * 0.5 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width + width * ratio * 0.885) + 80, y: width * ratio * 0.75 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.68) + 64, y: width * 0.33 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.61) + 108, y: width * 0.66 + 32 - 14 },
+      ] : [
+        { x: window.innerWidth - 16 - (width * 0.60) - 80, y: width *  0.167 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.25) - 80, y: width * 0.50 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.49) + 108, y: width * 0.833 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.68) + 64, y: width * 0.33 + 32 - 14 },
+        { x: window.innerWidth - 16 - (width * 0.61) + 168, y: width * 0.66 + 32 - 14 },
+      ]),
       isDarkMode
         ? { x: window.innerWidth - 16 - width / ratio - (width / ratio / ratio * 0.18) - 16, y: window.innerHeight - 16 - width / ratio / ratio * 0.32 - 16 }  // sun
         : { x: window.innerWidth - 16 - width / ratio - (width / ratio / ratio * 0.68) + 14, y: window.innerHeight - 16 - width / ratio / ratio * 0.82 + 14 },  // moon
@@ -95,6 +103,7 @@ export default function Cursor({ width, isTablet }: { width: number, isTablet: b
         className="fixed z-50 w-6 h-6 bg-zinc-100 rounded-full pointer-events-none mix-blend-difference"
       ></motion.div>
 
+      {/* SHOW ELEMENTS */}
       {/* {stickyElements.map((element, index) => (
         <motion.div key={index} className="fixed z-50 w-6 h-6 bg-violet-100 rounded-full pointer-events-none" style={{ translateX: element.x, translateY: element.y }} />
       ))} */}

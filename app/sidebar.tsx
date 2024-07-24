@@ -1,10 +1,9 @@
 import { Major_Mono_Display } from "next/font/google";
-import { useEffect, useState } from "react";
-import Squiggle from "./squiggle";
 import { ratio } from "./helpers/swirl";
 import SwirlBlock from "./swirlBlock";
 import DarkMode from "./darkMode";
 import { useScrollContext } from "./context/scrollContext";
+import { useEffect, useState } from "react";
 
 const majorMono = Major_Mono_Display({ subsets: ["latin"], weight: "400" });
 
@@ -17,7 +16,19 @@ export default function Sidebar({
   isSpiralComplete: boolean;
   isTablet: boolean;
 }) {
-  const { scrollToById } = useScrollContext();
+  const { scrollToById, hasScrolled } = useScrollContext();
+  const [isCondensed, setIsCondensed] = useState(false);
+
+  useEffect(() => {
+    if (hasScrolled) {
+      setTimeout(() => {
+        setIsCondensed(true);
+      }, 250);
+    } else {
+      setIsCondensed(isTablet);
+    }
+  }, [hasScrolled, isTablet]);
+
 
   const getLengthByIndex = (i: number) => {
     return width * (1 / ratio) ** (i - 1);
@@ -33,68 +44,66 @@ export default function Sidebar({
         position={{ top: 0, right: 0 }}
         arcCorner="tr"
       >
-        {isTablet && (
-          <>
-            <div
-              className="absolute transition-all duration-500 top-[16.7%] -mt-5 right-[58%] w-52 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
-              style={{ opacity: "1" }}
-            />
-            <p
-              className={`transition-all duration-500 cursor-pointer absolute z-30 top-[16.7%] right-[60%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{
-                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
-                opacity: !isSpiralComplete ? "0" : "1",
-              }}
-              onClick={() => scrollToById("about")}
-            >
-              p<span className="uppercase">r</span>ojects
-            </p>
-            <div
-              className="absolute transition-all duration-500 top-[33%] -mt-5 right-[36%] w-64 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
-              style={{ opacity: "1" }}
-            />
-            <p
-              className={`transition-all duration-500 cursor-pointer absolute z-20 top-[33%] right-[38%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{
-                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
-                opacity: !isSpiralComplete ? "0" : "1",
-              }}
-              onClick={() => scrollToById("experience")}
-            >
-              e<span className="uppercase">x</span>perience
-            </p>
-            <div
-              className="absolute transition-all duration-500 top-[50%] -mt-5 right-[23%] w-52 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
-              style={{ opacity: "1" }}
-            />
-            <p
-              className={`transition-all duration-500 cursor-pointer absolute z-20 top-[50%] right-[25%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
-              style={{
-                transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
-                opacity: !isSpiralComplete ? "0" : "1",
-              }}
-              onClick={() => scrollToById("projects")}
-            >
-              <span className="uppercase">a</span>bout me
-            </p>
-          </>
-        )}
+        <div>
+          <div
+            className="absolute transition-all duration-500 top-[16.7%] -mt-5 right-[58%] w-52 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
+            style={{ opacity: !isSpiralComplete || !isCondensed ? "0" : "1" }}
+          />
+          <p
+            className={`transition-all duration-500 cursor-pointer absolute z-30 top-[16.7%] right-[60%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
+            style={{
+              transform: !isSpiralComplete || !isCondensed ? "translateY(0)" : "translateY(-50%)",
+              opacity: !isSpiralComplete || !isCondensed ? "0" : "1",
+            }}
+            onClick={() => scrollToById("projects")}
+          >
+            p<span className="uppercase">r</span>ojects
+          </p>
+          <div
+            className="absolute transition-all duration-500 top-[33%] -mt-5 right-[36%] w-64 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
+            style={{ opacity: !isSpiralComplete || !isCondensed ? "0" : "1" }}
+          />
+          <p
+            className={`transition-all duration-500 cursor-pointer absolute z-20 top-[33%] right-[38%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
+            style={{
+              transform: !isSpiralComplete || !isCondensed ? "translateY(0)" : "translateY(-50%)",
+              opacity: !isSpiralComplete || !isCondensed ? "0" : "1",
+            }}
+            onClick={() => scrollToById("experience")}
+          >
+            e<span className="uppercase">x</span>perience
+          </p>
+          <div
+            className="absolute transition-all duration-500 top-[50%] -mt-5 right-[23%] w-52 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
+            style={{ opacity: !isSpiralComplete || !isCondensed ? "0" : "1" }}
+          />
+          <p
+            className={`transition-all duration-500 cursor-pointer absolute z-20 top-[50%] right-[25%] text-2xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
+            style={{
+              transform: !isSpiralComplete || !isCondensed ? "translateY(0)" : "translateY(-50%)",
+              opacity: !isSpiralComplete || !isCondensed ? "0" : "1",
+            }}
+            onClick={() => scrollToById("about")}
+          >
+            <span className="uppercase">a</span>bout me
+          </p>
+        </div>
         <div
           className="absolute transition-all duration-500 -mt-5 -mr-4 w-44 h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
           style={{
-            top: isTablet ? "66.7%" : "33%",
-            right: isTablet ? "17%" : "42%",
+            top: (isTablet || hasScrolled) ? "66.7%" : "33%",
+            right: (isTablet || hasScrolled) ? "17%" : "42%",
           }}
         />
         <p
           className={`transition-all duration-500 absolute z-20 cursor-pointer text-${
-            isTablet ? "2xl" : "3xl"
+            (isTablet || hasScrolled) ? "2xl" : "3xl"
           } text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
           style={{
             transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
             opacity: !isSpiralComplete ? "0" : "1",
-            top: isTablet ? "66.7%" : "33%",
-            right: isTablet ? "17%" : "42%",
+            top: (isTablet || hasScrolled) ? "66.7%" : "33%",
+            right: (isTablet || hasScrolled) ? "17%" : "42%",
           }}
           onClick={() => scrollToById("contact")}
         >
@@ -103,19 +112,19 @@ export default function Sidebar({
         <div
           className="absolute transition-all duration-500 -mt-5 -mr-4 w-[264px] h-10 rounded-full bg-zinc-100 dark:bg-zinc-950 blur"
           style={{
-            top: isTablet ? "83.3%" : "66%",
-            right: isTablet ? "10%" : "22%",
+            top: (isTablet || hasScrolled) ? "83.3%" : "66%",
+            right: (isTablet || hasScrolled) ? "10%" : "22%",
           }}
         />
         <p
           className={`transition-all duration-500 absolute z-20 cursor-pointer text-${
-            isTablet ? "2xl" : "3xl"
+            (isTablet || hasScrolled) ? "2xl" : "3xl"
           } text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
           style={{
             transform: !isSpiralComplete ? "translateY(0)" : "translateY(-50%)",
             opacity: !isSpiralComplete ? "0" : "1",
-            top: isTablet ? "83.3%" : "66%",
-            right: isTablet ? "10%" : "22%",
+            top: (isTablet || hasScrolled) ? "83.3%" : "66%",
+            right: (isTablet || hasScrolled) ? "10%" : "22%",
           }}
           onClick={() => scrollToById("photography")}
         >

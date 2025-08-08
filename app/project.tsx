@@ -135,60 +135,92 @@ export default function Project({
       />
 
       <motion.div
-        className="absolute transition-all duration-500 bg-zinc-400 dark:bg-zinc-400"
+        className="absolute transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           top: 0,
           left: 0,
           width: "100%",
-          height: "2px",
+          height: "1px",
           originX: "left",
           scaleX: isHovered || ref === modalRef ? 1 : 0,
         }}
       />
       <motion.div
-        className="absolute transition-all duration-500 bg-zinc-400 dark:bg-zinc-400"
+        className="absolute transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           bottom: 0,
           right: 0,
           height: "100%",
-          width: "2px",
+          width: "1px",
           originY: "bottom",
           scaleY: isHovered || ref === modalRef ? 1 : 0,
         }}
       />
       <motion.div
-        className="absolute transition-all duration-500 bg-zinc-400 dark:bg-zinc-400"
+        className="absolute transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           bottom: 0,
           right: 0,
           width: "100%",
-          height: "2px",
+          height: "1px",
           originX: "right",
           scaleX: isHovered || ref === modalRef ? 1 : 0,
         }}
       />
       <motion.div
-        className="absolute transition-all duration-500 bg-zinc-400 dark:bg-zinc-400"
+        className="absolute transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           top: 0,
           left: 0,
-          width: "2px",
+          width: "1px",
           height: "100%",
           originY: "top",
           scaleY: isHovered || ref === modalRef ? 1 : 0,
         }}
       />
 
-      <p className="transition-all duration-500 text-5xl md:text-7xl uppercase font-bold mb-1 ml-1 text-zinc-950 dark:text-zinc-100">
-        {title[0]}
-        {title.length > 1 && (
-          <span style={{ verticalAlign: "top", fontSize: "24px" }}>
-            {title[1]}
-          </span>
+      <p className="transition-all duration-500 text-5xl md:text-5xl font-bold mb-1 ml-1 text-zinc-950 dark:text-zinc-100 flex items-center">
+        <span>
+          {title[0]}
+          {title.length > 1 && (
+            <span style={{ verticalAlign: "top", fontSize: "24px" }}>
+              {title[1]}
+            </span>
+          )}
+        </span>
+        {isInModal && link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open live project"
+            onClick={(e) => e.stopPropagation()}
+            className="ml-6 inline-flex items-center opacity-100 hover:opacity-80 transition-opacity"
+            style={{
+              // ensure the icon only shows when in modal
+              opacity: isInModal ? 1 : 0,
+            }}
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <path d="M15 3h6v6" />
+              <path d="M10 14L21 3" />
+            </svg>
+          </a>
         )}
       </p>
       <p
-        className="transition-opacity duration-300 text-sm uppercase font-semibold mb-2 ml-2 transition-all duration-500 text-zinc-700 dark:text-zinc-300"
+        className="text-sm uppercase font-semibold mb-2 ml-2 transition-all duration-500 text-zinc-700 dark:text-zinc-300"
         style={{ opacity: isInModal && isMobile ? 0 : 1 }}
       >
         {type}
@@ -199,7 +231,7 @@ export default function Project({
           src={images[0]}
           height={1}
           width={420}
-          alt="Legacy app image"
+          alt={`${title[0]} preview 1`}
           style={{}}
           className="transition-transform duration-500 origin-top-left relative z-20 border-8 border-zinc-100 dark:border-zinc-950 rounded-md"
           onMouseEnter={handleHoverLeft}
@@ -210,7 +242,7 @@ export default function Project({
           src={images[1]}
           height={1}
           width={420}
-          alt="Legacy app image"
+          alt={`${title[0]} preview 2`}
           style={{
             transform: "translateY(-32px) scale(.75)",
             display: isMobile ? "none" : "",

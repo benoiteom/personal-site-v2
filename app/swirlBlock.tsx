@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useThemeContext } from "./context/themeContext";
 
 export default function SwirlBlock({
   children,
@@ -20,6 +21,8 @@ export default function SwirlBlock({
   position: { top: number; right: number };
   arcCorner: "tr" | "tl" | "br" | "bl";
 }) {
+  const { isDarkMode } = useThemeContext();
+  
   let origin;
   let arcStyles;
   let animationDelays;
@@ -27,7 +30,7 @@ export default function SwirlBlock({
   switch (arcCorner) {
     case "tr":
       origin = { t: 0, r: 1, b: 1, l: 0 };
-      arcStyles = { borderWidth: `4px 4px 0 0`, borderRadius: "0 100% 0 0", originX: 0, originY: 1 };
+      arcStyles = { borderWidth: `1px 1px 0 0`, borderRadius: "0 100% 0 0", originX: 0, originY: 1 };
       animationDelays = {
         t: timingDelay + .2,
         r: timingDelay,
@@ -37,7 +40,7 @@ export default function SwirlBlock({
       break;
     case "tl":
       origin = { t: 1, r: 0, b: 0, l: 1 };
-      arcStyles = { borderWidth: `4px 0 0 4px`, borderRadius: "100% 0 0 0", originX: 1, originY: 1 };
+      arcStyles = { borderWidth: `1px 0 0 1px`, borderRadius: "100% 0 0 0", originX: 1, originY: 1 };
       animationDelays = {
         t: timingDelay + .2,
         r: timingDelay + .2,
@@ -47,7 +50,7 @@ export default function SwirlBlock({
       break;
     case "br":
       origin = { t: 1, r: 0, b: 0, l: 1 };
-      arcStyles = { borderWidth: `0 4px 4px 0`, borderRadius: "0 0 100% 0", originX: 0, originY: 0 };
+      arcStyles = { borderWidth: `0 1px 1px 0`, borderRadius: "0 0 100% 0", originX: 0, originY: 0 };
       animationDelays = {
         t: timingDelay,
         r: timingDelay,
@@ -57,7 +60,7 @@ export default function SwirlBlock({
       break;
     case "bl":
       origin = { t: 0, r: 1, b: 1, l: 0 };
-      arcStyles = { borderWidth: `0 0 4px 4px`, borderRadius: "0 0 0 100%", originX: 1, originY: 0 };
+      arcStyles = { borderWidth: `0 0 1px 1px`, borderRadius: "0 0 0 100%", originX: 1, originY: 0 };
       animationDelays = {
         t: timingDelay + .2,
         r: timingDelay,
@@ -79,7 +82,7 @@ export default function SwirlBlock({
     >
       {/* TOP */}
       <motion.div
-        className="absolute z-10 transition-all duration-500 bg-zinc-400 dark:bg-zinc-500"
+        className="absolute z-10 transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           top: `${borderOffset.t}px`,
           left: 0,
@@ -93,7 +96,7 @@ export default function SwirlBlock({
       />
       {/* RIGHT */}
       <motion.div
-        className="absolute z-10 transition-all duration-500 bg-zinc-400 dark:bg-zinc-500"
+        className="absolute z-10 transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           bottom: 0,
           right: `${borderOffset.r}px`,
@@ -107,7 +110,7 @@ export default function SwirlBlock({
       />
       {/* BOTTOM */}
       <motion.div
-        className="absolute z-10 transition-all duration-500 bg-zinc-400 dark:bg-zinc-500"
+        className="absolute z-10 transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           bottom: `${borderOffset.b}px`,
           right: 0,
@@ -121,7 +124,7 @@ export default function SwirlBlock({
       />
       {/* LEFT */}
       <motion.div
-        className="absolute z-10 transition-all duration-500 bg-zinc-400 dark:bg-zinc-500"
+        className="absolute z-10 transition-all duration-500 bg-zinc-200 dark:bg-zinc-800"
         style={{
           top: 0,
           left: `${borderOffset.l}px`,
@@ -137,7 +140,12 @@ export default function SwirlBlock({
       <div className="absolute z-20 top-0 left-0 h-full w-full overflow-hidden">
         <motion.div
           className="absolute top-0 left-0 h-full w-full transition-all duration-500 border-zinc-950 dark:border-zinc-100"
-          style={arcStyles}
+          style={{
+            ...arcStyles,
+            filter: isDarkMode 
+              ? 'drop-shadow(0 0 4px rgba(244, 244, 245, 0.6)) drop-shadow(0 0 8px rgba(244, 244, 245, 0.3))'
+              : 'drop-shadow(0 0 4px rgba(39, 39, 42, 0.6)) drop-shadow(0 0 8px rgba(39, 39, 42, 0.3))',
+          }}
           initial={{ rotate: '90deg' }}
           animate={{ rotate: '0deg' }}
           transition={{ delay: timingDelay, duration: 0.2, type: "tween" }}

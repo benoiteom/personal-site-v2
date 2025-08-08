@@ -9,6 +9,7 @@ import Sidebar from "./sidebar";
 import { Major_Mono_Display } from "next/font/google";
 import { ratio } from "./helpers/swirl";
 import { useScrollContext } from "./context/scrollContext.tsx";
+import { useThemeContext } from "./context/themeContext";
 
 const majorMono = Major_Mono_Display({ subsets: ["latin"], weight: "400" });
 
@@ -22,6 +23,7 @@ export default function Landing({
   isTablet: boolean;
 }) {
   const { hasScrolled, setHasScrolled, scrollToById } = useScrollContext();
+  const { isDarkMode } = useThemeContext();
 
   const [isSpiralComplete, setIsSpiralComplete] = useState(false);
 
@@ -87,7 +89,14 @@ export default function Landing({
               animate={{ rotate: "0deg" }}
               transition={{ delay: 2.4, duration: 0.2 }}
             >
-              <div className="z-20 absolute transition-all duration-500 w-full h-full rounded-tl-full border-t-4 border-l-4 border-zinc-950 dark:border-zinc-100" />
+              <div 
+                className="z-20 absolute transition-all duration-500 w-full h-full rounded-tl-full border-t border-l border-zinc-950 dark:border-zinc-100" 
+                style={{
+                  filter: isDarkMode 
+                    ? 'drop-shadow(0 0 4px rgba(244, 244, 245, 0.6)) drop-shadow(0 0 8px rgba(244, 244, 245, 0.3))'
+                    : 'drop-shadow(0 0 4px rgba(39, 39, 42, 0.6)) drop-shadow(0 0 8px rgba(39, 39, 42, 0.3))',
+                }}
+              />
             </motion.div>
             {!isTablet && (
               <>

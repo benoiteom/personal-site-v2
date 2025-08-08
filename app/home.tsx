@@ -96,6 +96,7 @@ export default function Home() {
                             type={project.type}
                             dates={project.dates}
                             tech={project.tech}
+                            link={project.link}
                             images={project.images}
                             isMobile={isMobile}
                           />

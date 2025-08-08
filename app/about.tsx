@@ -6,7 +6,7 @@ import Swirl from "./svg/swirl";
 export default function About() {
   return (
     <div className="flex justify-center" style={{ gap: '32px' }}>
-      <div className="animate duration-500 max-w-24 flex-grow border-y-2 border-zinc-400 dark:border-zinc-600" />
+      <div className="animate duration-500 max-w-24 flex-grow border-y border-zinc-300 dark:border-zinc-700" />
       <div className="relative max-w-[600px] flex-grow">
         <div className="relative max-h-[400px] max-w-[400px] mr-24">
           <div className="absolute top-[40%] -right-24">

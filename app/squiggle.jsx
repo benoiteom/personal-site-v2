@@ -60,7 +60,7 @@ export default function Squiggle({ wiggle = false, curved = false }) {
       viewBox="0 0 44 32"
     >
       <rect x="0.5" width="43" height="32" fill="transparent" className="transition-all duration-500" />
-      <motion.path d={path} fill={!isDarkMode ? '#09090B' : '#F4F4F5'} className="transition-all duration-500" />
+      <motion.path d={path} fill={!isDarkMode ? '#09090B' : '#F4F4F5'} className="transition-all duration-300" />
     </svg>
   );
 }

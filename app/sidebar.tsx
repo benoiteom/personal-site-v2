@@ -38,7 +38,7 @@ export default function Sidebar({
     <aside style={{ width }}>
       <SwirlBlock
         width={getLengthByIndex(1)}
-        sideWidths={{ t: 4, r: 4, b: 0, l: 4 }}
+        sideWidths={{ t: 1, r: 1, b: 0, l: 1 }}
         timingDelay={1.8}
         borderOffset={{ t: 0, r: 0, b: 0, l: 0 }}
         position={{ top: 0, right: 0 }}
@@ -133,7 +133,7 @@ export default function Sidebar({
       </SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(2)}
-        sideWidths={{ t: 4, r: 4, b: 4, l: 0 }}
+        sideWidths={{ t: 1, r: 1, b: 1, l: 0 }}
         timingDelay={1.6}
         borderOffset={{ t: -2, r: 0, b: 0, l: 0 }}
         position={{ top: getLengthByIndex(1), right: 0 }}
@@ -185,7 +185,7 @@ export default function Sidebar({
       </SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(3)}
-        sideWidths={{ t: 0, r: 4, b: 4, l: 4 }}
+        sideWidths={{ t: 0, r: 1, b: 1, l: 1 }}
         timingDelay={1.4}
         borderOffset={{ t: 0, r: -2, b: 0, l: 0 }}
         position={{
@@ -198,7 +198,7 @@ export default function Sidebar({
       </SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(4)}
-        sideWidths={{ t: 4, r: 0, b: 4, l: 4 }}
+        sideWidths={{ t: 1, r: 0, b: 1, l: 1 }}
         timingDelay={1.2}
         borderOffset={{ t: -2, r: 0, b: -2, l: 0 }}
         position={{
@@ -209,7 +209,7 @@ export default function Sidebar({
       ></SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(5)}
-        sideWidths={{ t: 4, r: 4, b: 0, l: 4 }}
+        sideWidths={{ t: 1, r: 1, b: 0, l: 1 }}
         timingDelay={1}
         borderOffset={{ t: -2, r: -2, b: 0, l: -2 }}
         position={{ top: getLengthByIndex(1), right: getLengthByIndex(2) }}
@@ -217,7 +217,7 @@ export default function Sidebar({
       ></SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(6)}
-        sideWidths={{ t: 4, r: 4, b: 4, l: 0 }}
+        sideWidths={{ t: 1, r: 1, b: 1, l: 0 }}
         timingDelay={0.8}
         borderOffset={{ t: -2, r: -2, b: -2, l: 0 }}
         position={{
@@ -228,7 +228,7 @@ export default function Sidebar({
       ></SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(7)}
-        sideWidths={{ t: 0, r: 4, b: 4, l: 4 }}
+        sideWidths={{ t: 0, r: 1, b: 1, l: 1 }}
         timingDelay={0.6}
         borderOffset={{ t: 0, r: -2, b: -2, l: -2 }}
         position={{
@@ -239,7 +239,7 @@ export default function Sidebar({
       ></SwirlBlock>
       <SwirlBlock
         width={getLengthByIndex(8)}
-        sideWidths={{ t: 4, r: 0, b: 4, l: 4 }}
+        sideWidths={{ t: 1, r: 0, b: 1, l: 1 }}
         timingDelay={0.4}
         borderOffset={{ t: -2, r: 0, b: -2, l: -2 }}
         position={{
@@ -252,7 +252,7 @@ export default function Sidebar({
       <SwirlBlock
         width={getLengthByIndex(9)}
         height={getLengthByIndex(8) / 2}
-        sideWidths={{ t: 4, r: 4, b: 0, l: 4 }}
+        sideWidths={{ t: 1, r: 1, b: 0, l: 1 }}
         timingDelay={0.2}
         borderOffset={{ t: -2, r: -2, b: 0, l: -2 }}
         position={{
@@ -264,7 +264,7 @@ export default function Sidebar({
       <SwirlBlock
         width={getLengthByIndex(9)}
         height={getLengthByIndex(8) / 2}
-        sideWidths={{ t: 4, r: 4, b: 4, l: 4 }}
+        sideWidths={{ t: 1, r: 1, b: 1, l: 1 }}
         timingDelay={0}
         borderOffset={{ t: -2, r: -2, b: -2, l: -2 }}
         position={{

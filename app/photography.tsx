@@ -1,9 +1,10 @@
 import React from "react";
-import { Major_Mono_Display } from "next/font/google";
+import { Major_Mono_Display, Inter } from "next/font/google";
 import Image from "next/image";
 import { photos } from "./helpers/config";
 
 const majorMono = Major_Mono_Display({ subsets: ["latin"], weight: "400" });
+const inter = Inter({ subsets: ["latin"], weight: "400" });
 
 export default function Photography() {
   return (
@@ -13,7 +14,8 @@ export default function Photography() {
         <p
           className={`${majorMono.className} animate duration-500 mt-8 text-5xl text-zinc-950 dark:text-zinc-100`}
         >
-          PHotos
+          photos
+          <span className={`${inter.className} font-light text-sm`}>&nbsp;&nbsp;&nbsp;( just for fun )</span>
         </p>
         <div className="mx-8 mt-16">
           {photos.map((p, i) => (

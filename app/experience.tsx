@@ -82,7 +82,7 @@ export default function Experience({
         data.map((d, i) => (
           <div
             key={i}
-            className={`border-l-2 border-zinc-400 dark:border-zinc-600 px-12 mb-6 ${
+            className={`border-l border-zinc-200 dark:border-zinc-800 px-12 mb-6 transition-all duration-300 ${
               d.title ? "py-8" : "py-2"
             } `}
           >

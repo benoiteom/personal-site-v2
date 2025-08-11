@@ -28,8 +28,8 @@ export const config = {
 
 export const experience = [
   {
-    company: "Busify",
-    title: "Full Stack Web Developer",
+    company: "CharterUP",
+    title: "Full Stack Web Developer II",
     date: "Present",
     data: [
       {
@@ -38,7 +38,7 @@ export const experience = [
       },
       { subTitle: "Promoted Nov 2022" },
     ],
-    details: "I currently hold a leading role here with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback.",
+    details: "I currently hold a leading role with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback.",
   },
   {
     company: "TATA Consultancy Services",

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Chivo_Mono } from "next/font/google";
 import Squiggle from "./squiggle";
 import { motion } from "framer-motion";
+
+const chivoMono = Chivo_Mono({ subsets: ["latin"], weight: ["100", "400", "700"] });
 
 export default function Experience({
   company,
@@ -24,9 +27,9 @@ export default function Experience({
   });
 
   return (
-    <div className="relative px-12 py-8 ml-24 mb-9">
+    <div className={`${chivoMono.className} relative px-12 py-8 ml-24 mb-9`}>
       {/* DATES */}
-      <p className="absolute uppercase -top-7 left-2 md:-left-24 text-sm text-zinc-800 dark:text-zinc-300">
+      <p className="absolute uppercase -top-7 left-2 md:-left-24 text-sm font-thin text-zinc-800 dark:text-zinc-300">
         {date}
       </p>
 
@@ -54,11 +57,11 @@ export default function Experience({
       </div>
 
       {/* COMPANY AND TITLE */}
-      <p className="text-sm md:text-base font-semibold uppercase mb-1 text-zinc-700 dark:text-zinc-300">
+      <p className="text-sm md:text-base font-normal uppercase mb-1 text-zinc-700 dark:text-zinc-300">
         {company}
       </p>
       <p
-        className={`text-2xl md:text-3xl font-bold mb-6 text-zinc-950 dark:text-zinc-100`}
+        className={`text-2xl md:text-3xl mb-6 text-zinc-950 dark:text-zinc-100`}
       >
         {title}
       </p>
@@ -73,7 +76,7 @@ export default function Experience({
           transition={{ duration: 0.3 }}
           viewport={{ root: scrollRef, margin: "-100px 0px -200px 0px" }}
         >
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">{details}</p>
+          <p className="text-sm font-thin text-zinc-600 dark:text-zinc-400">{details}</p>
         </motion.div>
       )}
 
@@ -86,12 +89,12 @@ export default function Experience({
               d.title ? "py-8" : "py-2"
             } `}
           >
-            <p className="text-sm md:text-base font-semibold uppercase mb-1 text-zinc-700 dark:text-zinc-300">
+            <p className="text-sm md:text-base font-normal uppercase mb-1 text-zinc-700 dark:text-zinc-300">
               {d.subTitle}
             </p>
             {d.title && (
               <>
-                <p className="text-2xl md:text-3xl font-bold text-zinc-950 dark:text-zinc-100">
+                <p className="text-2xl md:text-3xl text-zinc-950 dark:text-zinc-100">
                   {d.title}
                 </p>
                 {!!d.details && (<motion.div
@@ -105,7 +108,7 @@ export default function Experience({
                     margin: "-100px 0px -200px 0px",
                   }}
                 >
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">{d.details}</p>
+                  <p className="text-sm font-thin text-zinc-600 dark:text-zinc-400">{d.details}</p>
                 </motion.div>)}
               </>
             )}

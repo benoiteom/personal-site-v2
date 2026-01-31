@@ -29,22 +29,21 @@ export const config = {
 export const experience = [
   {
     company: "CharterUP",
-    title: "Full Stack Web Developer II",
+    title: "Full Stack Web Developer",
     date: "Present",
     data: [
       {
         title: "AWS Certified",
         subTitle: "AWS Certified Cloud Practitioner - Associate",
       },
-      { subTitle: "Promoted Nov 2022" },
     ],
-    details: "I currently hold a leading role with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback.",
+    details: "I currently hold a leading role with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback. I've recently expanded into AI-powered enhancements and developer productivity tooling.",
   },
   {
     company: "TATA Consultancy Services",
     title: "Junior Software Engineer",
     date: "Feb 2022",
-    details: "Allocated to Boeing to monitor and support an internal Java application.",
+    details: "Allocated to a client to monitor and support an internal Java application.",
   },
   {
     company: "University of Illinois Urbana-Champaign",
@@ -64,7 +63,7 @@ export const projects = [
     title: ["Wayfinder.AI"],
     link: "https://wayfinder.benoiteom.com",
     colors: ["#72EFF1", "#25E0CD", "#EC52CA", "#FF3D60", "#7416EC"],
-    desc: "An AI-powered travel assistant that helps users choose a destination, plan their itinerary, and manage their trips.",
+    desc: "An AI-powered travel assistant that helps users choose a destination, plan their itinerary, and manage their trips. Uses the Gemini API for fast, accurate responses.",
     type: "Website",
     status: "In development",
     dates: "MAY 2025 - PRESENT",
@@ -85,9 +84,9 @@ export const projects = [
   },
   {
     title: ["Black & White"],
-    link: "https://blog.benoiteom.com",
+    link: "https://blog.benoiteom.com/view/1544840e-4da0-4f50-b5ec-2cfdf7ea51fe/en/Blog",
     colors: ["#26D8D6", "#3591DC", "#5D65B4", "#D52828", "#000000"],
-    desc: "A blogging website for my photography, project ideas, and anything else that comes to mind. Built with Next.js, Tailwind, and PostgreSQL.",
+    desc: "A blogging website for anyone to create a simple blog. I use it for my photography, project ideas, providing life updates to family, and my thoughts on AI and tech.",
     type: "Website",
     status: "Completed",
     dates: "JAN 2025 - FEB 2025",
@@ -101,7 +100,7 @@ export const projects = [
     title: ["Wordle", "FR"],
     link: "https://wordle.benoiteom.com",
     colors: ["#629F5B", "#C2AA52", "#FFFFFF", "#000000"],
-    desc: "A Wordle clone for the French side of my family, it features a list of 365 french words and full Wordle functionality.",
+    desc: "A Wordle clone I made during the pandemic for the French side of my family. It features a list of 365 french words and full Wordle functionality including stats and sharing.",
     type: "Website",
     status: "Completed",
     dates: "JAN 2022",
@@ -115,19 +114,16 @@ export const projects = [
     title: ["Teneez"],
     link: "https://teneez.com",
     colors: ["#F2B822", "#FFFFFF", "#000000"],
-    desc: "A startup that gives users a place to rent the most exclusive sneakers. Cofounded by myself and a friend in my junior year of college, I was CTO and designer / frontend developer.",
+    desc: "A startup I cofounded in my junior year of college, we'd rent you the best sneakers for a weekend. I held the roles of CTO, designer, frontend developer, and engineering manager.",
     type: "Startup",
     status: "Closed",
     dates: "NOV 2019 - JUN 2021",
     tech: [
-      "React",
       "Next.js",
-      "React Native",
-      "JavaScript",
       "MySQL",
-      "Node.js",
       "AWS",
       "Stripe",
+      "Node.js",
     ],
     images: [
       "/teneez-1.png",
@@ -137,30 +133,15 @@ export const projects = [
 ];
 
 export const aboutMe = [
-  "I pride myself in AI-enhanced hard work, a constant desire to learn, and a broad skill set. I have experience working across the entire pipeline, from idea to release, with projects to back it up. Lately, my choice of stack is Next.js with Tailwind, a Node.js backend, and PostgreSQL. I'm also trying to get back into mobile app development with React Native.",
-  "Don't worry, I'm not all work. I love throwing myself into new hobbies and expanding on old ones. Some longer lasting interests include photography, fitness, and traveling. You might find me running, listening to an audiobook, or perfecting my homemade kombucha!",
+  "I pride myself in hard work, a constant desire to learn, and a broad skill set. I have experience working across the entire pipeline, from ideation to release, with projects to back it up. Lately, my choice of stack is Next.js with Tailwind, a Node.js backend, and PostgreSQL. I'm also getting back into mobile app development a bit with React Native. If you'd like to know where I stand on AI, check out my blog!",
+  "Don't worry, I'm not all work. I love throwing myself into new hobbies and expanding on old ones. Some longer lasting interests include photography, fitness, and traveling. You might find me running, listening to an audiobook, or out walking with my camera.",
   "Hope you like my website :)",
 ];
 
-export const photos = [
-  {
-    location: "California",
-    date: "2024",
-    images: [
-      "/DSCF2743.webp",
-      "/DSCF2775.webp",
-      "/DSCF2857.webp",
-      "/DSCF2896.webp",
-    ],
-  },
-  {
-    location: "Portugal",
-    date: "2024",
-    images: [
-      "/DSCF2557.webp",
-      "/DSCF2624.webp",
-      "/DSCF2655.webp",
-      "/DSCF2690.webp",
-    ],
-  },
-]
+export const aboutStats = {
+  favoriteFood: "Chocolate torte",
+  coffeeOrTea: "Tea (or matcha)",
+  musicType: "Indie",
+  birthday: "Feb 1",
+  languages: ["English", "French"],
+};

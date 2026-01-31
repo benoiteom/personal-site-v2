@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 
 const ScrollContext = createContext({
   hasScrolled: false,
@@ -12,7 +12,7 @@ const ScrollContext = createContext({
 
 export function ScrollProvider({ children }: { children: React.ReactNode }) {
   const [hasScrolled, setHasScrolled] = useState<boolean>(false);
-  const refLenis = useRef<Lenis>();
+  const refLenis = useRef<Lenis | null>(null);
 
   const scrollToById = (anchor: string) => {
     const anchorElement = document.getElementById(anchor);

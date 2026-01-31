@@ -28,11 +28,7 @@ export default function Squiggle({ wiggle = false, curved = false }) {
       ease: "easeInOut",
       delay: 0.5,
       onComplete: () => {
-        if (pathIndex === paths.length - 1) {
-          return
-          progress.set(0);
-          setPathIndex(1);
-        } else {
+        if (pathIndex < paths.length - 1) {
           setPathIndex(pathIndex + 1);
         }
       },

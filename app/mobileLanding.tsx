@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Major_Mono_Display } from "next/font/google";
+import { Chivo_Mono } from "next/font/google";
 import MiniSwirl from "./svg/miniSwirl";
 import { useScrollContext } from "./context/scrollContext";
 import { useThemeContext } from "./context/themeContext";
 import Sun from "./svg/sun";
 import Moon from "./svg/moon";
-import Github from "./svg/github";
 import Linkedin from "./svg/linkedin";
 import Resume from "./svg/resume";
 
-const majorMono = Major_Mono_Display({ subsets: ["latin"], weight: "400" });
+const chivoMono = Chivo_Mono({ subsets: ["latin"], weight: ["100", "400"] });
 
 export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
   const { scrollToById } = useScrollContext();
@@ -18,8 +17,14 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showMenuBg, setShowMenuBg] = useState(false);
 
+  // Track when component has mounted to avoid hydration issues with useScroll
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const { scrollY } = useScroll({
-    container: scrollRef,
+    container: isMounted ? scrollRef : undefined,
   });
   const translateNameX = useTransform(scrollY, [0, 500], [0, -1000]);
 
@@ -48,9 +53,9 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
           className="relative w-full overflow-hidden"
           style={{ height: showMenuBg ? "100vh" : "80px" }}
         >
-          <div className="transition-all duration-500 relative z-30 h-20 flex justify-between items-center w-full p-3 border-4 border-zinc-950 dark:border-zinc-100 bg-zinc-100 dark:bg-zinc-950">
+          <div className="transition-all duration-500 relative z-30 h-20 flex justify-between items-center w-full p-3 border-2 border-zinc-950 dark:border-zinc-100 bg-zinc-100 dark:bg-zinc-950">
             <p
-              className={`transition-all duration-500 text-xl text-zinc-950 dark:text-zinc-100 mr-3 ${majorMono.className}`}
+              className={`transition-all duration-500 text-xl text-zinc-950 dark:text-zinc-100 mr-3 ${chivoMono.className}`}
             >
               Benoît <span className="whitespace-nowrap">O-M</span>
             </p>
@@ -69,22 +74,14 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
             </div>
           </div>
           <div
-            className="transition-all duration-500 absolute z-10 top-[76px] left-0 w-full origin-top-left rounded-br-full border-4 border-zinc-950 dark:border-zinc-100 bg-zinc-100 dark:bg-zinc-950"
+            className="transition-all duration-500 absolute z-10 top-[76px] left-0 w-full origin-top-left rounded-br-full border-2 border-zinc-950 dark:border-zinc-100 bg-zinc-100 dark:bg-zinc-950"
             style={{
               height: "calc(100vw - 32px)",
               transform: showMenu ? "rotate(0deg)" : "rotate(-90deg)",
             }}
           >
-            <div className="h-40 w-40 p-6 rounded-br-full border-b-4 border-r-4 border-zinc-950 dark:border-zinc-100">
-              <div className="flex items-center">
-                <Github
-                  height="36px"
-                  className="mr-6"
-                  color={!isDarkMode ? "#09090B" : "#F4F4F5"}
-                  onClick={() =>
-                    window.open("https://github.com/benoiteom", "_blank")
-                  }
-                />
+            <div className="h-40 w-40 p-6 rounded-br-full border-b-2 border-r-2 border-zinc-950 dark:border-zinc-100">
+              <div className="flex justify-end pr-4">
                 <Resume
                   height="36px"
                   color={!isDarkMode ? "#09090B" : "#F4F4F5"}
@@ -102,7 +99,7 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
                 }
               />
             </div>
-            <div className="absolute top-44 left-4 h-20 w-20 flex justify-center items-center cursor-pointer rounded-full border-4 border-zinc-950 dark:border-zinc-100">
+            <div className="absolute top-44 left-4 h-20 w-20 flex justify-center items-center cursor-pointer rounded-full border-2 border-zinc-950 dark:border-zinc-100">
               {isDarkMode ? (
                 <Sun
                   width={32}
@@ -120,39 +117,25 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
               )}
             </div>
             <p
-              className={`${majorMono.className} absolute top-[16.6%] right-[6%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
+              className={`${chivoMono.className} absolute top-[16.6%] right-[6%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
               style={{ transform: "translateY(-50%)" }}
               onClick={() => handleScroll("projects")}
             >
-              p<span className="uppercase">r</span>ojects
+              Projects
             </p>
             <p
-              className={`${majorMono.className} absolute top-[33.3%] right-[10%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
+              className={`${chivoMono.className} absolute top-[33.3%] right-[10%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
               style={{ transform: "translateY(-50%)" }}
               onClick={() => handleScroll("experience")}
             >
-              work e<span className="uppercase">x</span>p
+              Experience
             </p>
             <p
-              className={`${majorMono.className} absolute top-[50%] right-[20%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
+              className={`${chivoMono.className} absolute top-[50%] right-[20%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
               style={{ transform: "translateY(-50%)" }}
               onClick={() => handleScroll("about")}
             >
-              <span className="uppercase">a</span>bout me
-            </p>
-            <p
-              className={`${majorMono.className} absolute top-[66.7%] right-[32%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
-              style={{ transform: "translateY(-50%)" }}
-              onClick={() => handleScroll("contact")}
-            >
-              cont<span className="uppercase">a</span>ct
-            </p>
-            <p
-              className={`${majorMono.className} absolute top-[83.3%] right-[56%] cursor-pointer animate duration-500 text-xl text-zinc-950 dark:text-zinc-100`}
-              style={{ transform: "translateY(-50%)" }}
-              onClick={() => handleScroll("photography")}
-            >
-              p<span className="uppercase">h</span>otos
+              About Me
             </p>
           </div>
         </div>
@@ -162,17 +145,17 @@ export default function MobileLanding({ scrollRef }: { scrollRef: any }) {
         style={{ translateX: translateNameX }}
       >
         <p
-          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
+          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 ${chivoMono.className}`}
         >
           Benoît
         </p>
         <p
-          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 my-1 ${majorMono.className}`}
+          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 my-1 ${chivoMono.className}`}
         >
           Ortalo
         </p>
         <p
-          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 ${majorMono.className}`}
+          className={`animate duration-500 text-6xl text-zinc-950 dark:text-zinc-100 ${chivoMono.className}`}
         >
           -Magné
         </p>

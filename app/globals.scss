@@ -48,19 +48,19 @@ html.lenis, html.lenis body {
 #scroll-wrapper {
   scrollbar-width: none !important;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
 }
- 
+
+#scroll-wrapper * {
+  touch-action: manipulation;
+}
+
 #scroll-wrapper::-webkit-scrollbar {
   display: none;
 }
 
 @layer utilities {
-  @for $i from 0 through 5000 {
-    .animation-delay-#{$i * 200} {
-      animation-delay: #{$i * 200}ms;
-    }
-  }
-
   .animation-fill-mode-forwards {
     animation-fill-mode: forwards;
   }
@@ -68,14 +68,6 @@ html.lenis, html.lenis body {
   .w-fit-content {
     width: fit-content;
   }
-}
-
-.background-moon:hover ~ .background-moon-cloud {
-  transform: translateX(1rem);
-}
-
-.background-sun:hover ~ .background-sun-cloud {
-  transform: translateX(1rem);
 }
 
 .resume-pdf-underline {
@@ -92,28 +84,4 @@ html.lenis, html.lenis body {
 
 .linkedin:hover ~ .linkedin-underline {
   transform: scaleX(1);
-}
-
-.github-underline {
-  transform: scaleX(0);
-}
-
-.github:hover ~ .github-underline {
-  transform: scaleX(1);
-}
-
-.shape {
-  stroke-dasharray: 140 540;
-  stroke-dashoffset: -474;
-  stroke-width: 8px;
-  fill: transparent;
-  stroke: #19f6e8;
-  border-bottom: 5px solid black;
-  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-}
-
-.shape:hover {
-  stroke-width: 2px;
-  stroke-dashoffset: 0;
-  stroke-dasharray: 760;
 }

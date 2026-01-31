@@ -2,20 +2,16 @@
 
 import Smoke from "./smoke";
 import { useEffect, useRef, useState } from "react";
-import Project from "./project";
 import Experience from "./experience";
-import { experience, projects } from "./helpers/config";
-import About from "./about";
-import Cursor from "./cursor";
+import { experience } from "./helpers/config";
+import AboutSection from "./aboutSection";
 import Landing from "./landing";
 import { ratio } from "./helpers/swirl";
 import { ScrollProvider } from "./context/scrollContext.tsx";
 import { ThemeProvider } from "./context/themeContext.tsx";
+import { ProjectProvider } from "./context/projectContext.tsx";
 import MobileLanding from "./mobileLanding.tsx";
-import Contact from "./contact.tsx";
-import Photography from "./photography.tsx";
-import { ModalProvider } from "./context/modalContext.jsx";
-import Modal from "./modal.tsx";
+import ProjectsSection from "./projectsSection.tsx";
 
 export default function Home() {
   const [width, setWidth] = useState(0);
@@ -55,106 +51,79 @@ export default function Home() {
   return (
     <ThemeProvider>
       <ScrollProvider>
-        <ModalProvider>
+        <ProjectProvider>
           <main className="bg-zinc-100 dark:bg-zinc-950 transition duration-500">
-            <Smoke />
-            {!!width && !isMobile && (
-              <Cursor width={width} isTablet={isTablet} />
-            )}
-            <div
-              id="scroll-wrapper"
-              ref={scrollRef}
-              className="w-full h-screen overflow-auto"
-            >
-              <div id="scroll-content" style={{ minHeight: "500vh" }}>
-                {(!!width || isMobile) && (
-                  <>
-                    {/* LANDING PAGE */}
-                    {!isMobile ? (
-                      <Landing
-                        width={width}
-                        scrollRef={scrollRef}
-                        isTablet={isTablet}
-                      />
-                    ) : (
-                      <MobileLanding scrollRef={scrollRef} />
+          <Smoke />
+          <div
+            id="scroll-wrapper"
+            ref={scrollRef}
+            className="w-full h-screen overflow-auto"
+          >
+            <div id="scroll-content" style={{ minHeight: "500vh" }}>
+              {(!!width || isMobile) && (
+                <>
+                  {/* LANDING PAGE */}
+                  {!isMobile ? (
+                    <Landing
+                      width={width}
+                      scrollRef={scrollRef}
+                      isTablet={isTablet}
+                    />
+                  ) : (
+                    <MobileLanding scrollRef={scrollRef} />
+                  )}
+
+                  {/* PROJECTS */}
+                  <ProjectsSection
+                    width={width}
+                    scrollRef={scrollRef}
+                    isMobile={isMobile}
+                  />
+
+                  
+                  <div
+                    className="relative px-8"
+                    style={{ width: `calc(100vw - ${width + 16}px)` }}
+                  >
+                    <div className="py-8" />
+
+                    {/* EXPERIENCE */}
+                    {!!scrollRef && (
+                      <div className="flex justify-center">
+                        <div id="experience">
+                          {experience.map((e, i) => (
+                            <Experience
+                              key={i}
+                              scrollRef={scrollRef}
+                              company={e.company}
+                              title={e.title}
+                              date={e.date}
+                              data={e.data}
+                              details={e.details}
+                            />
+                          ))}
+                        </div>
+                      </div>
                     )}
 
-                    <div
-                      className="relative mt-8 px-8"
-                      style={{ width: `calc(100vw - ${width + 16}px)` }}
-                    >
-                      {/* PROJECTS */}
-                      <div id="projects">
-                        {projects.map((project, i) => (
-                          <Project
-                            key={i}
-                            title={project.title}
-                            colors={project.colors}
-                            desc={project.desc}
-                            status={project.status}
-                            type={project.type}
-                            dates={project.dates}
-                            tech={project.tech}
-                            link={project.link}
-                            images={project.images}
-                            isMobile={isMobile}
-                          />
-                        ))}
-                      </div>
+                    <div className="py-28" />
+                  </div>
 
-                      <div className="py-28" />
+                  {/* ABOUT - Rendered outside px-8 container for scroll detection like Projects */}
+                  <AboutSection
+                    width={width}
+                    scrollRef={scrollRef}
+                    isMobile={isMobile}
+                  />
 
-                      {/* EXPERIENCE */}
-                      {!!scrollRef && (
-                        <div className="flex justify-center">
-                          <div id="experience">
-                            {experience.map((e, i) => (
-                              <Experience
-                                key={i}
-                                scrollRef={scrollRef}
-                                company={e.company}
-                                title={e.title}
-                                date={e.date}
-                                data={e.data}
-                                details={e.details}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                  <div className="py-4" />
 
-                      <div className="py-28" />
-
-                      {/* ABOUT */}
-                      <div id="about">
-                        <About />
-                      </div>
-
-                      <div className="py-20" />
-
-                      {/* CONTACT */}
-                      <div id="contact">
-                        <Contact />
-                      </div>
-
-                      <div className="py-28" />
-
-                      {/* PHOTOGRAPHY */}
-                      <div id="photography">
-                        <Photography />
-                      </div>
-
-                      <div className="py-20" />
-                    </div>
-                  </>
-                )}
-              </div>
+                </>
+              )}
             </div>
-          </main>
-
-          <Modal />
-        </ModalProvider>
+          </div>
+        </main>
+        </ProjectProvider>
       </ScrollProvider>
     </ThemeProvider>
   );

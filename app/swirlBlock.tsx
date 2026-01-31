@@ -137,16 +137,11 @@ export default function SwirlBlock({
         transition={{ delay: animationDelays.l, duration: 0.2 }}
       />
       {/* ARC */}
-      <div className="absolute z-20 top-0 left-0 h-full w-full overflow-hidden">
+      <div id="arc" className="absolute z-20 top-0 left-0 h-full w-full overflow-clip">
         <motion.div
           className="absolute top-0 left-0 h-full w-full transition-all duration-500 border-zinc-950 dark:border-zinc-100"
-          style={{
-            ...arcStyles,
-            filter: isDarkMode 
-              ? 'drop-shadow(0 0 4px rgba(244, 244, 245, 0.6)) drop-shadow(0 0 8px rgba(244, 244, 245, 0.3))'
-              : 'drop-shadow(0 0 4px rgba(39, 39, 42, 0.6)) drop-shadow(0 0 8px rgba(39, 39, 42, 0.3))',
-          }}
-          initial={{ rotate: '90deg' }}
+          style={{ ...arcStyles }}
+          initial={{ rotate: '91deg' }}
           animate={{ rotate: '0deg' }}
           transition={{ delay: timingDelay, duration: 0.2, type: "tween" }}
         />

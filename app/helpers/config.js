@@ -133,7 +133,7 @@ export const projects = [
 ];
 
 export const aboutMe = [
-  "I pride myself in hard work, a constant desire to learn, and a broad skill set. I have experience working across the entire pipeline, from ideation to release, with projects to back it up. Lately, my choice of stack is Next.js with Tailwind, a Node.js backend, and PostgreSQL. I'm also getting back into mobile app development a bit with React Native. If you'd like to know where I stand on AI, check out my blog!",
+  "I pride myself in hard work, a constant desire to learn, and a broad skill set. I have experience working across the entire pipeline, from ideation to release, with projects to back it up. Lately, my choice of stack is Next.js with Tailwind, a Node.js backend, and PostgreSQL. I'm also getting back into mobile app development with React Native. If you'd like to know where I stand on AI, check out my blog!",
   "Don't worry, I'm not all work. I love throwing myself into new hobbies and expanding on old ones. Some longer lasting interests include photography, fitness, and traveling. You might find me running, listening to an audiobook, or out walking with my camera.",
   "Hope you like my website :)",
 ];

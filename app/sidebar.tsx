@@ -147,9 +147,9 @@ export default function Sidebar({
                     Experiences
                   </p>
                   <p className="text-sm font-thin text-zinc-950 dark:text-zinc-100 mt-4 mr-8 opacity-70 leading-relaxed">
-                    Mixing creativity with technology to create
-                    engaging user experiences. I love solving complex
-                    problems with elegant, well designed solutions.
+                    Blending creativity with technology to build 
+                    engaging user experiences. I enjoy solving complex 
+                    problems with elegant, well-designed solutions.
                   </p>
                 </motion.div>
               )}

@@ -34,7 +34,7 @@ export const experience = [
     data: [
       {
         title: "AWS Certified",
-        subTitle: "AWS Certified Cloud Practitioner - Associate",
+        subTitle: "AWS Certified Solutions Architect - Associate",
       },
     ],
     details: "I currently hold a leading role with responsibility working on frontend, backend, infrastructure, task management, contributing to designs, managing other developers, and resolving customer feedback. I've recently expanded into AI-powered enhancements and developer productivity tooling.",

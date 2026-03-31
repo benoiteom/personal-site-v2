@@ -60,6 +60,26 @@ export const experience = [
 
 export const projects = [
   {
+    title: ["PulseKit"],
+    link: "https://github.com/benoiteom/pulsekit",
+    colors: ["#7C3AED", "#FFFFFF", "#000000"],
+    desc: "Embedded simplified analytics platform for tracking website traffic, events, and user behavior. Built for small Next.js and Supabase projects deployed on Vercel.",
+    type: "Open Source",
+    status: "In development",
+    dates: "FEB 2026 - PRESENT",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Supabase",
+      "Vercel",
+      "npm",
+    ],
+    images: [
+      "/pulsekit-1.png",
+      "/pulsekit-2.png",
+    ],
+  },
+  {
     title: ["Wayfinder.AI"],
     link: "https://wayfinder.benoiteom.com",
     colors: ["#72EFF1", "#25E0CD", "#EC52CA", "#FF3D60", "#7416EC"],
@@ -83,34 +103,6 @@ export const projects = [
     ],
   },
   {
-    title: ["Black & White"],
-    link: "https://blog.benoiteom.com/view/1544840e-4da0-4f50-b5ec-2cfdf7ea51fe/en/Blog",
-    colors: ["#26D8D6", "#3591DC", "#5D65B4", "#D52828", "#000000"],
-    desc: "A blogging website for anyone to create a simple blog. I use it for my photography, project ideas, providing life updates to family, and my thoughts on AI and tech.",
-    type: "Website",
-    status: "Completed",
-    dates: "JAN 2025 - FEB 2025",
-    tech: ["Next.js", "Tailwind", "PostgreSQL"],
-    images: [
-      "/b&w-1.png",
-      "/b&w-2.png",
-    ],
-  },
-  {
-    title: ["Wordle", "FR"],
-    link: "https://wordle.benoiteom.com",
-    colors: ["#629F5B", "#C2AA52", "#FFFFFF", "#000000"],
-    desc: "A Wordle clone I made during the pandemic for the French side of my family. It features a list of 365 french words and full Wordle functionality including stats and sharing.",
-    type: "Website",
-    status: "Completed",
-    dates: "JAN 2022",
-    tech: ["Next.js", "JavaScript", "CSS"],
-    images: [
-      "/wordle-1.png",
-      "/wordle-2.png",
-    ],
-  },
-  {
     title: ["Teneez"],
     link: "https://teneez.com",
     colors: ["#F2B822", "#FFFFFF", "#000000"],
@@ -128,6 +120,20 @@ export const projects = [
     images: [
       "/teneez-1.png",
       "/teneez-2.png",
+    ],
+  },
+  {
+    title: ["Black & White"],
+    link: "https://blog.benoiteom.com/view/1544840e-4da0-4f50-b5ec-2cfdf7ea51fe/en/Blog",
+    colors: ["#26D8D6", "#3591DC", "#5D65B4", "#D52828", "#000000"],
+    desc: "A blogging website for anyone to create a simple blog. I use it for my photography, project ideas, providing life updates to family, and my thoughts on AI and tech.",
+    type: "Website",
+    status: "Completed",
+    dates: "JAN 2025 - FEB 2025",
+    tech: ["Next.js", "Tailwind", "PostgreSQL"],
+    images: [
+      "/b&w-1.png",
+      "/b&w-2.png",
     ],
   }
 ];
